@@ -1,0 +1,9 @@
+.primary-button {
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
