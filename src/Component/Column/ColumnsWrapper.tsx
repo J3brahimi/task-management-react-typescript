@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 
-// Components
+// Context
+import Context from "../../Context/store";
+
+// Component
 import Column from "./Column";
 import ColumnForm from "./ColumnForm";
 
@@ -8,16 +11,15 @@ import ColumnForm from "./ColumnForm";
 import "./style/column-wrapper-style.css";
 
 const ColumnsWrapper: React.FC = () => {
+  const { columns } = useContext(Context);
   return (
     <div className="columns-wrapper">
       <div className="columns-inner">
-        <div className="column-item">
-          <Column />
-        </div>
-
-        <div className="column-item">
-          <Column />
-        </div>
+        {columns.map((column) => (
+          <div key={column.id} className="column-item">
+            <Column column={column} />
+          </div>
+        ))}
 
         <div className="column-item">
           <ColumnForm />

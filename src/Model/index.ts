@@ -1,3 +1,5 @@
+import { ADD_COLUMN, EDIT_COLUMN, REMOVE_COLUMN } from "../Context/type";
+
 export type CardType = {
   id: number;
   columnId: number;
@@ -8,4 +10,20 @@ export type CardType = {
 export type ColumnType = {
   id: number;
   name: string;
+};
+
+export type ActionTypes =
+  | { type: typeof ADD_COLUMN; payload: string }
+  | {
+      type: typeof EDIT_COLUMN;
+      payload: { id: number; name: string };
+    }
+  | { type: typeof REMOVE_COLUMN; payload: number };
+
+export type ContextInitialStateType = {
+  columns: ColumnType[];
+  cards: CardType[];
+  addColumn: (name: string) => void;
+  editColumn: ({ id, name }: { id: number; name: string }) => void;
+  removeColumn: (id: number) => void;
 };
