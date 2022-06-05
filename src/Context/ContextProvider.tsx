@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 
 // Context store and reducer
 import Context, { initialState } from "./store";
@@ -21,6 +21,12 @@ type Props = {
 
 const ContextProvider: React.FC<Props> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  // sync state with localStorage
+  useEffect(() => {
+    localStorage.setItem("columns", JSON.stringify(state.columns));
+    localStorage.setItem("cards", JSON.stringify(state.cards));
+  }, [state]);
 
   const value: ContextInitialStateType = {
     columns: state.columns,
