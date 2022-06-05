@@ -1,6 +1,9 @@
 // Layouts
 import Layout from "./Layout/Main";
 
+// Context
+import ContextProvider from "./Context/ContextProvider";
+
 // Components
 import Columns from "./Component/Column/ColumnsWrapper";
 
@@ -9,9 +12,11 @@ import "./Style/reset.css";
 
 function App() {
   return (
-    <Layout>
-      <Columns />
-    </Layout>
+    <ContextProvider>
+      <Layout>
+        <Columns />
+      </Layout>
+    </ContextProvider>
   );
 }
 
