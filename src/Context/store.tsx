@@ -7,6 +7,9 @@ export const initialState = {
   addColumn: () => {},
   editColumn: () => {},
   removeColumn: () => {},
+  addCard: () => {},
+  editCard: () => {},
+  removeCard: () => {},
 };
 
 const Context = createContext<ContextInitialStateType>(initialState);

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useMemo } from "react";
 
 // Context
 import Context from "../../Context/store";
@@ -19,8 +19,13 @@ type Props = {
 };
 
 const Column: React.FC<Props> = ({ column }) => {
-  const { removeColumn } = useContext(Context);
+  const { cards, removeColumn } = useContext(Context);
   const [showEditForm, setShowEditForm] = useState<boolean>(false);
+
+  const cardsOfThisColumn = useMemo(
+    () => cards.filter((card) => card.columnId === column.id),
+    [cards]
+  );
 
   return (
     <>
@@ -39,8 +44,11 @@ const Column: React.FC<Props> = ({ column }) => {
               <button onClick={() => removeColumn(column.id)}>Delete</button>
             </div>
           </div>
-          <Card />
-          <CardForm />
+          {cardsOfThisColumn.map((card) => (
+            <Card key={card.id} card={card} />
+          ))}
+
+          <CardForm columnId={column.id} />
         </div>
       )}
     </>

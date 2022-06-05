@@ -1,7 +1,14 @@
 // Types
 import { ColumnType, CardType, ContextInitialStateType } from "../Model";
 import { ActionTypes } from "../Model";
-import { ADD_COLUMN, EDIT_COLUMN, REMOVE_COLUMN } from "./type";
+import {
+  ADD_COLUMN,
+  EDIT_COLUMN,
+  REMOVE_COLUMN,
+  ADD_CARD,
+  EDIT_CARD,
+  REMOVE_CARD,
+} from "./type";
 
 // Utils
 import { createId } from "../Utils/helper-functions";
@@ -34,6 +41,38 @@ const reducer = (state: ContextInitialStateType, action: ActionTypes) => {
         ),
         cards: state.cards.filter(
           (card: CardType) => card.columnId !== action.payload
+        ),
+      };
+    case ADD_CARD:
+      const newCardItem = {
+        id: createId(),
+        title: action.payload.title,
+        description: action.payload.description,
+        columnId: action.payload.columnId,
+      };
+      return {
+        ...state,
+        cards: [...state.cards, newCardItem],
+      };
+    case EDIT_CARD:
+      return {
+        ...state,
+        cards: state.cards.map((card: CardType) =>
+          card.id === action.payload.id
+            ? {
+                ...card,
+                title: action.payload.title,
+                description: action.payload.description,
+                columnId: action.payload.columnId,
+              }
+            : card
+        ),
+      };
+    case REMOVE_CARD:
+      return {
+        ...state,
+        cards: state.cards.filter(
+          (card: CardType) => card.id !== action.payload
         ),
       };
     default:

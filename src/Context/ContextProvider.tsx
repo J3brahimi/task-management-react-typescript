@@ -5,7 +5,14 @@ import Context, { initialState } from "./store";
 import reducer from "./reducer";
 
 // Types
-import { ADD_COLUMN, EDIT_COLUMN, REMOVE_COLUMN } from "./type";
+import {
+  ADD_COLUMN,
+  EDIT_COLUMN,
+  REMOVE_COLUMN,
+  ADD_CARD,
+  EDIT_CARD,
+  REMOVE_CARD,
+} from "./type";
 import { ContextInitialStateType } from "../Model";
 
 type Props = {
@@ -26,6 +33,21 @@ const ContextProvider: React.FC<Props> = ({ children }) => {
     },
     removeColumn: (id) => {
       dispatch({ type: REMOVE_COLUMN, payload: id });
+    },
+    addCard: ({ title, description, columnId }) => {
+      dispatch({ type: ADD_CARD, payload: { title, description, columnId } });
+    },
+    editCard: ({ id, title, description, columnId }) => {
+      dispatch({
+        type: EDIT_CARD,
+        payload: { id, title, description, columnId },
+      });
+    },
+    removeCard: (id) => {
+      dispatch({
+        type: REMOVE_CARD,
+        payload: id,
+      });
     },
   };
   return <Context.Provider value={value}>{children}</Context.Provider>;
