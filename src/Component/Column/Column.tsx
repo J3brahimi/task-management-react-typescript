@@ -1,5 +1,8 @@
 import React from "react";
 
+// Components
+import Card from "../Card/Card";
+
 // Style
 import "./style/column-style.css";
 
@@ -13,6 +16,9 @@ const Column: React.FC = () => {
           <button>Delete</button>
         </div>
       </div>
+      <Card />
+      <Card />
+      <Card />
     </div>
   );
 };

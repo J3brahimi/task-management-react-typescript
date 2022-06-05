@@ -1,0 +1,30 @@
+.single-card {
+  margin: 12px 12px 0;
+  padding: 8px;
+  background: #ffc107;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.single-card > h5 {
+  cursor: pointer;
+}
+
+.single-card p {
+  font-size: 12px;
+  letter-spacing: 1.5;
+  line-height: 1.2;
+  margin-top: 4px;
+}
+
+.single-card-footer {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.single-card-footer select {
+  padding: 2px 4px;
+}
