@@ -24,7 +24,7 @@ const Column: React.FC<Props> = ({ column }) => {
 
   const cardsOfThisColumn = useMemo(
     () => cards.filter((card) => card.columnId === column.id),
-    [cards]
+    [cards, column]
   );
 
   return (
