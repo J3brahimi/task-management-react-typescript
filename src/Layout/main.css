@@ -1,0 +1,14 @@
+.main-wrapper {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background-color: #03a9f4;
+}
+
+.main-content {
+  height: 90%;
+  width: 96%;
+  overflow-y: auto;
+}
