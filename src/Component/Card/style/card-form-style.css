@@ -1,0 +1,13 @@
+.card-form {
+  margin: 12px;
+}
+
+.description-button {
+  display: block;
+  background: none;
+  border: none;
+  outline: none;
+  margin-bottom: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}

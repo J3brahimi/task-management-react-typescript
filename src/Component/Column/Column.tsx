@@ -2,6 +2,7 @@ import React from "react";
 
 // Components
 import Card from "../Card/Card";
+import CardForm from "../Card/CardForm";
 
 // Style
 import "./style/column-style.css";
@@ -19,6 +20,7 @@ const Column: React.FC = () => {
       <Card />
       <Card />
       <Card />
+      <CardForm />
     </div>
   );
 };
